@@ -1,0 +1,36 @@
+version: '3'
+services:
+  product-service:
+    build: ./product-service
+    ports:
+      - "3001:3000"
+    depends_on:
+      - mongodb-service
+      - rabbitmq-service
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "3002:3000"
+    depends_on:
+      - mongodb-service
+      - rabbitmq-service
+
+  mongodb-service:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  rabbitmq-service:
+    image: rabbitmq:management
+    ports:
+      - "15672:15672" # Management interface
+      - "5672:5672" # rabbitmq service
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+
+volumes:
+   mongo-data:
+   rabbitmq-data:

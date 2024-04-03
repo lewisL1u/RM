@@ -1,4 +1,8 @@
-# Setup  
+# Run in docker-container
+
+docker-compose up --build
+
+## Setup  
 
 docker run --name=mysql-image -p3306:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:latest
 
