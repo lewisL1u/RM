@@ -4,13 +4,14 @@ const PORT = process.env.PORT || 3002;
 const mongoose = require("mongoose");
 const amqp = require("amqplib");
 const Order = require("./models/Order");
+const amqpServer = process.env.AMQP_URL || "amqp://localhost:5672";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 var channel, connection;
 
 mongoose
-  .connect("mongodb://0.0.0.0:27017/scan-order-service", {
+  .connect("mongodb://mongo:27017/scan-order-service", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -19,7 +20,7 @@ mongoose
 
 // RabbitMQ connection
 async function connectToRabbitMQ() {
-  const amqpServer = "amqp://guest:guest@localhost:5672";
+  // const amqpServer = "amqp://guest:guest@localhost:5672";
   connection = await amqp.connect(amqpServer);
   channel = await connection.createChannel();
   await channel.assertQueue("order-service-queue");

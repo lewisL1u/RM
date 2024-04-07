@@ -3,13 +3,14 @@ const router = new Router();
 const Product = require("../models/Product");
 const amqp = require("amqplib");
 const Buffer = require('buffer').Buffer;
+const amqpUrl = process.env.AMQP_URL || "amqp://localhost:5672";
 
 let order, channel, connection;
 
 // Connect to RabbitMQ
 async function connectToRabbitMQ() {
-  const amqpServer = "amqp://guest:guest@localhost:5672";
-  connection = await amqp.connect(amqpServer);
+  // const amqpServer = "amqp://guest:guest@dev-rabbit:5672";
+  connection = await amqp.connect(amqpUrl);
   channel = await connection.createChannel();
   await channel.assertQueue("product-service-queue");
 }

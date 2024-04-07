@@ -1,5 +1,13 @@
 # Run in docker-container
 
+get images:
+    docker pull mongo
+    docker pull rabbitmq
+
+docker run -d --name dev-rabbit --hostname rabbitmq-dev -p 15672:15672 -p 5672:5672 rabbitmq:management
+
+docker run --name mongodb -d -p 27017:27017 mongo
+
 docker-compose up --build
 
 ## Setup  
