@@ -23,6 +23,9 @@ docker run -d --name dev-rabbit --hostname rabbitmq-dev -p 15672:15672 -p 5672:5
 
 ## Run
 
+## api data category
+https://aistudio.google.com/app/prompts/new_chat?utm_source=agd&utm_medium=referral&utm_campaign=core-cta&utm_content=
+
 cd product-service && npm run start
 cd order-service && npm run start
 
