@@ -17,7 +17,7 @@ services:
       - "15672:15672" # Management interface
       - "5672:5672" # rabbitmq service
     volumes:
-      - rabbitmq-data:/var/lib/rabbitmq
+      - rabbitmq-data:D:\projects\node/var/lib/rabbitmq
     networks:
       - nodejs
 
