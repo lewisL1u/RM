@@ -6,7 +6,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongo-data://D/projects/node/mongo/openbox:/data/db
     networks:
       - nodejs
 
@@ -17,7 +17,7 @@ services:
       - "15672:15672" # Management interface
       - "5672:5672" # rabbitmq service
     volumes:
-      - rabbitmq-data:D:\projects\node/var/lib/rabbitmq
+      - rabbitmq-data:/var/lib/rabbitmq
     networks:
       - nodejs
 
