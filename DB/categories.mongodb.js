@@ -16,6 +16,7 @@ db.getCollection(collection).insertMany([
     { brand: 'Lenovo', filter: {condition: ['new', 'certified'], model: ['ThinkPad', 'Yoga', 'Legion'], processor: ['i9', 'i7', 'i5'], size: ['18" - 13.9"', '14"-14.9"']} },
     { brand: 'Apple', filter: {condition: ['new', 'certified'], model: ['MacBook', 'MacBook Pro', 'MacBook Air'], screen: ['13" - 13.9"', '14"-14.9"'], size: ['18" - 13.9"', '14"-14.9"']} },
     { brand: 'Acer', filter: {condition: ['new', 'certified'], model: ['Aspire', 'Predator', 'Chromebook'], screen: ['13" - 13.9"', '14"-14.9"'], size: ['18" - 13.9"', '14"-14.9"']} },
+])
 
 // The prototype form to create a collection:
 /* db.createCollection( <name>,
