@@ -1,7 +1,21 @@
 const Router = require("express").Router;
-const router = new Router();
+const router = Router();
+const amqp = require("amqplib");
+const Buffer = require('buffer').Buffer;
+const amqpUrl = process.env.AMQP_URL || "amqp://localhost:5672";
+
+async function createRabbitMQChannel() {
+    let connection, channel;
+    connection = await amqp.connect(amqpUrl);
+    channel = await connection.createChannel();
+    return channel;
+}
 
 router.get("/get10Products", (req, res) => {
+    res.send("Hello World!");
+});
+
+router.post("addProduct", async (req, res) => {
     res.send("Hello World!");
 });
 
