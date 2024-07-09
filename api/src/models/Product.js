@@ -2,22 +2,33 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
+    // dell, hp
     brand: {
         type: String,
         require: true
     },
+    // laptop, desktop
     productType: {
+        type: String,
+        require: true
+    },
+    // xps, thinkPad
+    model:{
         type: String,
         require: true
     },
     img: {
         type: Blob,
-        require: true
+        //require: true
+    },
+    imgUrl: {
+        type: String
     },
     productUrl: {
         type: String,
         require: true
     },
+    // json
     productInfo: {
         type: String,
         require: true

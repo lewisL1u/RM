@@ -47,7 +47,15 @@ services:
     environment:
       NODE_ENV: production
       AMQP_URL: amqp://guest:guest@rabbitmq:5672
-
+  api-service:
+    build: ./api
+    ports:
+      - "3005:3005"
+    networks:
+      - nodejs
+    depends_on:
+      - 'mongo'
+      
 volumes:
    mongo-data:
    rabbitmq-data:

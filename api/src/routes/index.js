@@ -4,6 +4,8 @@ const amqp = require("amqplib");
 const Buffer = require('buffer').Buffer;
 const amqpUrl = process.env.AMQP_URL || "amqp://localhost:5672";
 
+const ProductService = require('./product');
+
 async function createRabbitMQChannel() {
     let connection, channel;
     connection = await amqp.connect(amqpUrl);
@@ -15,8 +17,9 @@ router.get("/get10Products", (req, res) => {
     res.send("Hello World!");
 });
 
-router.post("addProduct", async (req, res) => {
-    res.send("Hello World!");
+router.post("/addProduct", async (req, res) => {
+    ProductService.addProduct({...req.body});
+    res.send("Success!");
 });
 
 // get my history
