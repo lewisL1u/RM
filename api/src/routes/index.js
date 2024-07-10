@@ -1,8 +1,13 @@
-const Router = require("express").Router;
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+const Router = express.Router;
 const router = Router();
 const amqp = require("amqplib");
 const Buffer = require('buffer').Buffer;
 const amqpUrl = process.env.AMQP_URL || "amqp://localhost:5672";
+const PORT = process.env.PORT || 3005;
 
 const ProductService = require('./product');
 
@@ -51,5 +56,7 @@ router.post("/createUser", (req, res) => {
 router.post("/login", (req, res) => {
     res.send("Hello World!");
 });
+
+
 
 module.exports = router;

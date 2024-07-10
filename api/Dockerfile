@@ -10,8 +10,8 @@ COPY . ./
 # Install app dependencies using npm install
 RUN npm install
 
-# Make port 3001 available to the world outside this container
+# Make port 3005 available to the world outside this container
 EXPOSE 3005
 
 # Run the app whent he container launches
-CMD ["node", "src/reoutes/index.js"]
+CMD ["node", "src/routes/index.js"]

@@ -18,7 +18,7 @@ const ProductSchema = new Schema({
         require: true
     },
     img: {
-        type: Blob,
+        type: String,
         //require: true
     },
     imgUrl: {
